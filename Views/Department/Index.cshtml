@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SecMarkAssignment.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dept_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dept_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.dept_name }) |
+               @Html.ActionLink("Details", "Details", new {  id=item.dept_name  }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.dept_name  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
